@@ -5,7 +5,7 @@ from viewer import ViewerService
 
 
 def demo() -> None:
-    screening = Screening("S101", "Oppenheimer", "19:00", "1", "Delayed")
+    screening = Screening("S10", "Oppenheimer", "19:00", "1", "Delay")
 
     viewers = ViewerService()
 
