@@ -1,7 +1,9 @@
 pipeline {
     agent any
 
-    options { timestamps() }
+    options {
+        timestamps()
+    }
 
     environment {
         PYTHON   = "C:\\Python312\\python.exe"
@@ -10,7 +12,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps { checkout scm }
+            steps {
+                checkout scm
+            }
         }
 
         stage('Python version') {
@@ -35,15 +39,12 @@ pipeline {
         stage('Run tests (pytest)') {
             steps {
                 bat "%VENV_DIR%\\Scripts\\python -m pytest -q tests"
-             }
-            }
-
             }
         }
     }
 
     post {
-        always { echo 'Build finished.' }
+        always  { echo 'Build finished.' }
         success { echo 'SUCCESS: Tests passed.' }
         failure { echo 'FAILURE: Tests failed. Check console output.' }
     }
