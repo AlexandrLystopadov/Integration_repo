@@ -22,6 +22,8 @@ class Screening(IScreening):
         return f"Розклад: {self.start_time}"
 
     def get_status(self) -> str:
+
         return f"STATUS OF MOVIE: {self.status}"
+
 
 

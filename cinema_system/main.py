@@ -8,6 +8,7 @@ def demo() -> None:
     screening = Screening("S101", "Avatar 3", "21:00", "5", "Postponed")
 
 
+
     viewers = ViewerService()
 
     print(screening.get_screening_info())
