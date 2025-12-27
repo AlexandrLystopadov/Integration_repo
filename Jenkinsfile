@@ -34,7 +34,10 @@ pipeline {
 
         stage('Run tests (pytest)') {
             steps {
-                bat "%VENV_DIR%\\Scripts\\python -m pytest -q"
+                bat "%VENV_DIR%\\Scripts\\python -m pytest -q tests"
+             }
+            }
+
             }
         }
     }
