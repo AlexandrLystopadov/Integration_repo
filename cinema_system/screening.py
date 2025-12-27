@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from interfaces import IScreening
+from cinema_system.interfaces import IScreening
 
 
 @dataclass(slots=True)
