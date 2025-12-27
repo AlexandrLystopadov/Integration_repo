@@ -3,7 +3,6 @@ pipeline {
 
     options {
         timestamps()
-        ansiColor('xterm')
     }
 
     environment {
@@ -44,14 +43,8 @@ pipeline {
     }
 
     post {
-        always {
-            echo 'Build finished.'
-        }
-        success {
-            echo '✅ SUCCESS: Tests passed.'
-        }
-        failure {
-            echo '❌ FAILURE: Tests failed. Check console output.'
-        }
+        success { echo ' SUCCESS: Tests passed.' }
+        failure { echo ' FAILURE: Tests failed. Check console output.' }
+        always  { echo 'Build finished.' }
     }
 }
