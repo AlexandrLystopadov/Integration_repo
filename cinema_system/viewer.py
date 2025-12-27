@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from  interfaces import IViewer, ITicket
-from ticket import Ticket
+from  cinema_system.interfaces import IViewer, ITicket
+from cinema_system.ticket import Ticket
 
 
 @dataclass

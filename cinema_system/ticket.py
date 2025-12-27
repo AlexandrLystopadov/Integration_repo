@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from uuid import uuid4
 
-from interfaces import ITicket
+from cinema_system.interfaces import ITicket
 
 
 @dataclass(slots=True)

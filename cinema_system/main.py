@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from screening import Screening
-from viewer import ViewerService
+from cinema_system.screening import Screening
+from cinema_system.viewer import ViewerService
 
 
 def demo() -> None:
