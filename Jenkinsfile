@@ -1,50 +1,47 @@
 pipeline {
     agent any
 
-    options {
-        timestamps()
-    }
+    options { timestamps() }
 
     environment {
+        PYTHON   = "C:\\Python312\\python.exe"
         VENV_DIR = ".venv"
     }
 
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            steps { checkout scm }
         }
 
         stage('Python version') {
             steps {
-                bat 'python --version'
+                bat "\"%PYTHON%\" --version"
             }
         }
 
         stage('Create venv') {
             steps {
-                bat 'python -m venv %VENV_DIR%'
+                bat "\"%PYTHON%\" -m venv %VENV_DIR%"
             }
         }
 
         stage('Install dependencies') {
             steps {
-                bat '%VENV_DIR%\\Scripts\\python -m pip install --upgrade pip'
-                bat '%VENV_DIR%\\Scripts\\python -m pip install -r requirements.txt'
+                bat "%VENV_DIR%\\Scripts\\python -m pip install --upgrade pip"
+                bat "%VENV_DIR%\\Scripts\\python -m pip install -r requirements.txt"
             }
         }
 
         stage('Run tests (pytest)') {
             steps {
-                bat '%VENV_DIR%\\Scripts\\python -m pytest -q'
+                bat "%VENV_DIR%\\Scripts\\python -m pytest -q"
             }
         }
     }
 
     post {
-        success { echo ' SUCCESS: Tests passed.' }
-        failure { echo ' FAILURE: Tests failed. Check console output.' }
-        always  { echo 'Build finished.' }
+        always { echo 'Build finished.' }
+        success { echo 'SUCCESS: Tests passed.' }
+        failure { echo 'FAILURE: Tests failed. Check console output.' }
     }
 }
